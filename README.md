@@ -1,6 +1,6 @@
 # unit-4-rpg-game
 
-A browser-based jQuery game where the player has to select his character and an enemy character and then continuous attack the enemy. The player wins when all the enemies have been defeated. If the player loses all the health points before the enemies are defeated, the player loses the game and will have to start over.
+A browser-based jQuery game where the player has to select his character and an enemy character and then continuously attack the enemy. The player wins when all the enemies have been defeated. If the player loses all the health points before the enemies are defeated, the player loses the game and will have to start over.
 
 ## Project Motivation
 
