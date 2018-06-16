@@ -1,4 +1,17 @@
 $(document).ready(function() {
+	var bakcgroundImageArray = ["slide-1.jpg", "slide-2.jpg", "slide-3.jpg", "slide-4.jpg", "slide-5.jpg", 
+	"slide-6.jpg", "slide-7.jpg", "slide-8.jpg", "slide-9.jpg", "slide-10.jpeg", 
+	"slide-11.jpg", "slide-12.jpg", "slide-13.jpg", "slide-14.jpg", "slide-15.jpg"];
+	var bakcgroundImageIndex = 0;
+	function changeBackground() {
+		if (bakcgroundImageIndex >= bakcgroundImageArray.length) {
+			bakcgroundImageIndex = 0;
+		}
+		$('#body').css("background-image", "url(assets/images/" + bakcgroundImageArray[bakcgroundImageIndex] + ")");
+		bakcgroundImageIndex++;
+	}
+	setInterval(changeBackground, 10000);
+
 	var characters = [];
 	var playerCharacterId = -1;
 	var enemyCharacterId = -1;
@@ -78,14 +91,6 @@ $(document).ready(function() {
 		$(htmlElement).text(value);
 	}
 
-	function defeatedEnemy() {
-
-	}
-
-	function startGame() {
-		// <button type="button" id="attack-button" class="btn btn-primary">Attack</button>
-	}
-
 	function gameFeedback(feedback) {
 		if (feedback) {
 			$("#game-feedback").append("<br>" + feedback);
@@ -143,9 +148,6 @@ $(document).ready(function() {
 	});
 
 	$(".character").on("click", function(){
-		// var characterIndex = $(this).attr("id");
-		// alert("content: " + $("#enemy-character").text());
-
 		if ($("#player-character").text().length === 0) {
 			generateSelectedCharacterHtml("#player-character", $(this).html());
 			playerCharacterId = $(this).attr("id");
@@ -154,7 +156,7 @@ $(document).ready(function() {
 			generateSelectedCharacterHtml("#enemy-character", $(this).html());
 			enemyCharacterId = $(this).attr("id");
 			generateSelectedCharacterHtml($("#" + enemyCharacterId), "");
-			// startGame();
+			gameFeedback();
 		}
 
 	});
