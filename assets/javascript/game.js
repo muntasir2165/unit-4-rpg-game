@@ -30,7 +30,7 @@ $(document).ready(function() {
 		"Attack Power": 0, 
 		"Counter Attack Power": 0,
 		"Name": "Black Panther",
-		"Image": "Black_Panther.jpg"});
+		"Image": "Black_Panther.png"});
 		characters.push({"Health Points": 0, 
 		"Attack Power": 0, 
 		"Counter Attack Power": 0,
