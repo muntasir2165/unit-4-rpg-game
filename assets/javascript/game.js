@@ -16,22 +16,26 @@ $(document).ready(function() {
 	var playerCharacterId = -1;
 	var enemyCharacterId = -1;
 
-		characters.push({"Health Points": 0, 
+		characters.push({"Health Points": 0,
+		"Base Attack Power": 0,
 		"Attack Power": 0, 
 		"Counter Attack Power": 0,
 		"Name": "Iron Man",
 		"Image": "Iron_Man.png",});
-		characters.push({"Health Points": 0, 
+		characters.push({"Health Points": 0,
+		"Base Attack Power": 0,
 		"Attack Power": 0, 
 		"Counter Attack Power": 0,
 		"Name": "Ant Man",
 		"Image": "Ant_Man.png"});
-		characters.push({"Health Points": 0, 
+		characters.push({"Health Points": 0,
+		"Base Attack Power": 0,
 		"Attack Power": 0, 
 		"Counter Attack Power": 0,
 		"Name": "Black Panther",
 		"Image": "Black_Panther.png"});
-		characters.push({"Health Points": 0, 
+		characters.push({"Health Points": 0,
+		"Base Attack Power": 0,
 		"Attack Power": 0, 
 		"Counter Attack Power": 0,
 		"Name": "Captain America",
@@ -78,8 +82,9 @@ $(document).ready(function() {
 	// generate the attribute values for each of the characters
 	function generateCharacterAttributeValues(character) {
 		character["Health Points"] = Math.floor(Math.random() * 200) + 75;
-		character["Attack Power"] = Math.floor(Math.random() * 30) + 5;
-		character["Counter Attack Power"] = Math.floor(Math.random() * 30) + 15;
+		character["Base Attack Power"] = Math.floor(Math.random() * 15) + 5;
+		character["Attack Power"] = character["Base Attack Power"];
+		character["Counter Attack Power"] = Math.floor(Math.random() * 30) + 10;
 	}
 
 	// generate the html content for the characters selected for the gameplay
@@ -113,7 +118,7 @@ $(document).ready(function() {
 			// the player character attacks first
 			var playerOnEnemyDamage = playerCharacter["Attack Power"];
 			enemyCharacter["Health Points"] -=  playerOnEnemyDamage;
-			playerCharacter["Attack Power"] +=playerCharacter["Attack Power"];
+			playerCharacter["Attack Power"] +=playerCharacter["Base Attack Power"];
 			updateHtmlText($("#enemy-character button").children().last(), enemyCharacter["Health Points"]);
 			gameFeedback();
 			gameFeedback("You attacked " + enemyCharacter["Name"] + " for " + playerOnEnemyDamage + " damage.");
